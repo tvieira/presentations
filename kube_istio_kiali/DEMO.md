@@ -130,3 +130,7 @@ Access Prometheus UI through [http://localhost:3000](http://localhost:3000)
   ```
 
 4. Rate of requests over the past 5 minutes
+
+```text
+rate(istio_requests_total{destination_service=~"productpage.*", response_code="200"}[5m])
+```
