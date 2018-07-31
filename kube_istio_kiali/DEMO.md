@@ -1,3 +1,8 @@
+## Before start
+
+1. Make sure you have minikube (I used v0.28.2), helm (v2.9.1) installed in your bin folder, and you bin folder is in your PATH.
+2. Download istio release - I used [v0.8.0](https://github.com/istio/istio/releases/tag/0.8.0) and extract in a folder where all the commands below will run from.
+
 ### Minikube (v0.28.2)
 
 Start minikube:
@@ -29,9 +34,10 @@ kubectl label namespace default istio-injection=enabled
 
 ### Bookinfo
 
-Install bookinfo sample app:
+Install bookinfo sample app (assuming you added $ISTIOFOLDER/bin in your path):
 
 ```shell
+export PATH=${PWD}/bin:$PATH
 kubectl apply -f samples/bookinfo/kube/bookinfo.yaml
 istioctl create -f samples/bookinfo/routing/bookinfo-gateway.yaml
 ```
@@ -58,7 +64,7 @@ curl https://raw.githubusercontent.com/kiali/kiali/master/deploy/kubernetes/kial
 echo "Kiali URL: http://${INGRESS_HOST}"
 ```
 
-Create an infinite loop to generate data:
+Create an infinite loop to generate data in a new terminal, so it keeps hitting the productpage so you have continuous telemetry:
 
 ```shell
 while true; do curl -o /dev/null -s -w "%{http_code}\n" http://${GATEWAY_URL}/productpage; done
@@ -86,7 +92,7 @@ Access Prometheus UI through [http://localhost:9090](http://localhost:9090)
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000
 ```
 
-Access Prometheus UI through [http://localhost:3000](http://localhost:3000)
+Access Grafana UI through [http://localhost:3000](http://localhost:3000)
 
 
 ### Scripts for the demo
