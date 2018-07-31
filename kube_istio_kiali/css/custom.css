@@ -1,0 +1,74 @@
+.slides .footer-left{
+  position:absolute;
+  bottom: 10%;
+  left: 5%;
+  font-size: 18px;
+}
+
+.slides .footer-right{
+  position:absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: 18px;
+}
+
+#left-tr {
+  left:-8.33%;
+  text-align: right;
+  float: left;
+  width:45%;
+  z-index:-10;
+}
+
+#left-tr-70 {
+  left:-8.33%;
+  text-align: right;
+  float: left;
+  width:70%;
+  z-index:-10;
+  border-right-style: solid;
+  border-right-width: 2px;
+  padding-right: 3%;
+}
+
+
+#right-tr {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:45%;
+}
+
+#left-tl {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:45%;
+  z-index:-10;
+}
+
+#right-tl {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: left;
+  z-index:-10;
+  width:45%;
+}
+
+#avatar {
+  border-radius: 50%;
+  border:0;
+}
+
+.reveal blockquote {
+  text-align: right;
+  box-shadow: none;
+  padding: 30px;
+}
+
+html.dimbg .slide-background {
+	opacity: 0.1 !important;
+}
