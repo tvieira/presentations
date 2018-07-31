@@ -2,6 +2,11 @@
 
 This presentation was made for the [Boston Kubernetes Meetup #10](https://www.meetup.com/Boston-Kubernetes-Meetup/events/252384637/).
 
+## Links
+
+* Kiali - https://kiali.io
+* Istio - https://istio.io
+
 ## Demo
 
 If you want to run the demo I ran in the meetup, you will find the setup steps in the [DEMO.md](DEMO.md) file.
