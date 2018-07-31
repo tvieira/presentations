@@ -1,9 +1,9 @@
-### Minikube
+### Minikube (v0.28.2)
 
 Start minikube:
 
 ```shell
-minikube start --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/localkube/certs/ca.crt" --extra-config=controller-manager.cluster-signing-key-file="/var/lib/localkube/certs/ca.key" --extra-config=apiserver.admission-control="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota" --kubernetes-version=v1.10.0 --vm-driver=kvm2 --memory=8192
+minikube start --kubernetes-version=v1.10.0 --vm-driver=kvm2 --memory=8192
 ```
 
 We need to enable ingress addon in order to get Kiali running out of the box:
@@ -12,14 +12,14 @@ We need to enable ingress addon in order to get Kiali running out of the box:
 minikube addons enable ingress
 ```
 
-### Helm
+### Helm (v2.9.1)
 
 ```shell
 kubectl create -f install/kubernetes/helm/helm-service-account.yaml
 helm init --service-account tiller
 ```
 
-### Istio (using Helm)
+### Istio (0.8.0 using Helm)
 
 ```shell
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system --set tracing.enabled=true
